@@ -6,7 +6,7 @@ import VIewItems from './Components/VIewItems';
 function App() {
   return (
     <>
-      {/* <AddNewItem /> */}
+      
       <VIewItems />
     </>
   );

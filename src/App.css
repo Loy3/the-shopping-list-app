@@ -1,38 +1,351 @@
-.App {
-  text-align: center;
+/*imports*/
+@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Lilita+One&family=Roboto+Condensed&display=swap');
+/*end of imports*/
+
+/*headings*/
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Caesar Dressing', cursive;
+  font-family: 'Lilita One', cursive;
+  letter-spacing: 3px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*end of headings*/
+
+/*for everyone*/
+* {
+  font-family: 'Caesar Dressing', cursive;
+  font-family: 'Lilita One', cursive;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.row {
+  margin: 0 -5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.column {
+  padding: 0;
+  float: left;
+}
+
+
+/*end of for everyone*/
+
+/*Turnded off*/
+#updateItem {
+  display: none;
+}
+
+#category {
+  display: none;
+}
+
+
+#newItem {
+  display: block;
+}
+
+/*end of turnded off*/
+
+/*view items*/
+.items .addBtn {
+  position: absolute;
+  top: 22vh;
+  right: 30px;
+
+  width: 200px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 10px;
+  box-shadow: 5px 5px 15px -3px #000;
+}
+
+.items .addBtn:hover {
+  box-shadow: 0 0 5px #000, 0 0 25px #000, 0 0 50px #000, 0 0 200px #000;
+}
+
+.items .addBtn .text {
+  font-size: 18px !important;
+  margin-top: 10px !important;
+}
+
+.sideNav {
+  position: fixed;
+  top: 40px;
+  left: 30px;
+  height: 100vh;
+  width: 17%;
+  background-color: whitesmoke;
+  box-shadow: 5px 5px 15px -3px #000;
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.sideNav .sideNav_btn {
+  margin: 20px;
+}
+
+.sideNav .sideNav_btn button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 6px 0;
+
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: white;
+  box-shadow: 2px 2px 10px -7px #000;
+}
+
+.sideNav h1 {
+  background-image: url("./Assets/Images/bg.jpg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding: 10px 0;
   color: white;
+  text-shadow: 5px 5px 15px #000;
+  text-align: center;
+  margin: 10px 0;
 }
 
-.App-link {
-  color: #61dafb;
+
+.sideNav li,
+.items .addBtn li {
+  display: inline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sideNav ul,
+.items .addBtn ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 10px;
+  width: 100%;
+  /* to remove default bullets */
 }
+
+.sideNav li,
+.items .addBtn li {
+  float: left;
+  width: auto;
+  padding-right: 0;
+}
+
+.sideNav ul img,
+.items .addBtn img {
+  width: 35px;
+}
+
+.sideNav ul .text,
+.items .addBtn .text {
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 13px;
+}
+
+.all-items,
+#category {
+  margin-left: 21%;
+  width: 80%;
+  margin-top: 22vh;
+}
+
+
+
+header {
+  background-image: url("./Assets/Images/bg.jpg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+header .bg {
+  width: 100%;
+  border-radius: 1em;
+  background-color: #000;
+  opacity: 0.8;
+
+  text-align: center;
+  height: 100%;
+}
+
+
+header .hText {
+  position: absolute;
+  left: 40%;
+  top: 8vh;
+  color: white;
+  margin-left: 30px;
+
+  z-index: 99;
+}
+
+header h1 {
+  font-size: 50px;
+}
+
+.column {
+  width: 30%;
+  padding: 10px;
+}
+
+
+h1 {
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.card {
+  width: 100%;
+  margin: 0px;
+  padding: 0;
+  background-color: whitesmoke;
+  box-shadow: 2px 2px 10px -7px #000;
+  position: relative;
+}
+
+
+
+
+.all-items li {
+  display: inline;
+}
+
+.all-items ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 10px;
+  width: 100%;
+  /* to remove default bullets */
+}
+
+.all-items li {
+  float: left;
+  width: auto;
+  padding-right: 0;
+}
+
+.card .itemImg {
+  width: 60px;
+  position: absolute;
+  top: -10px;
+}
+
+.card-btns {
+  position: absolute;
+  right: 10px;
+  top: -10px;
+}
+
+.card-btns button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.card-btns button img {
+  width: 35px;
+}
+
+.card-content {
+  position: relative;
+  padding: 60px 20px 20px 20px !important;
+}
+
+.card-content span {
+  font-family: 'Caesar Dressing', cursive;
+  font-family: 'Lilita One', cursive;
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+
+/*end of view items*/
+
+
+/*Add Item*/
+
+
+/*Popup*/
+.box {
+  background-color: #f8f8f8;
+  /* top: 20px; */
+  width: 500px;
+  height: 600px;
+  z-index: 99;
+  padding: 50px;
+  margin: 20px;
+}
+
+#newItem {
+  height: 90%;
+
+}
+
+.add-new-item {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background-color: rgba(19, 19, 19, 0.788);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.mypopup .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.box .close {
+  width: 20px;
+  float: right;
+}
+
+.box .close:hover {
+  filter: drop-shadow(5px 5px 5px #ff0101);
+}
+
+/*End of popup*/
+
+/*end of Add Item*/
