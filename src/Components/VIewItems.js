@@ -149,7 +149,7 @@ export default function VIewItems() {
 
         setDisplayItems(items)
 
-    }, [dispatch, items])
+    }, [dispatch])
 
     function deleteItem(event, item) {
         dispatch(deleteAnItem(item.id))

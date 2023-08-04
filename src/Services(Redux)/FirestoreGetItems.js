@@ -53,7 +53,8 @@ export const fetchItems = () => async (dispatch) => {
             return { id: doc.id, ...doc.data() };
         });
         dispatch(fetchItemsSuccess(documents))
-        // console.log(documents);
+        window.location.reload();
+        console.log(documents);
     } catch (error) {
         dispatch(fetchItemsFailure(error))
     }
@@ -64,6 +65,7 @@ export const deleteAnItem = (id) => async (dispatch) => {
     try {
         await deleteDoc(doc(db, "items", id));
         alert("Deleted successfully!");
+        window.location.reload();
     } catch (error) {
         dispatch(fetchItemsFailure(error));
     }
@@ -81,7 +83,8 @@ export const updateAnItem = (id) => async (dispatch) => {
     try {
         await updateDoc(storageRef, upItem);
         alert("Updated successfully!");
-        document.getElementById("updateItem").style.display = "none";
+        // document.getElementById("updateItem").style.display = "none";
+        window.location.reload();
     } catch (error) {
         dispatch(fetchItemsFailure(error));
     }
