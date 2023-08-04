@@ -63,7 +63,7 @@ export const fetchItems = () => async (dispatch) => {
 export const deleteAnItem = (id) => async (dispatch) => {
     try {
         await deleteDoc(doc(db, "items", id));
-        alert("Document successfully deleted!");
+        alert("Deleted successfully!");
     } catch (error) {
         dispatch(fetchItemsFailure(error));
     }
@@ -80,7 +80,7 @@ export const updateAnItem = (id) => async (dispatch) => {
     const storageRef = doc(db, "items", docId);
     try {
         await updateDoc(storageRef, upItem);
-        alert("Document successfully updated!");
+        alert("Updated successfully!");
         document.getElementById("updateItem").style.display = "none";
     } catch (error) {
         dispatch(fetchItemsFailure(error));
