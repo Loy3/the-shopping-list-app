@@ -408,14 +408,15 @@ p {
   /*view items*/
   .items .addBtn {
     position: absolute;
-    top: 16vh;
+    top: 10px;
     right: 10px;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 100%;
     border: 3px solid #4d65fd;
     padding: 5px;
     box-shadow: 5px 5px 15px -3px #000;
+    z-index: 10;
   }
 
   .items .addBtn .text {
@@ -447,63 +448,67 @@ p {
     width: 30px;
   }
 
-  .sideNav ul img,
-  .items .addBtn img {
-    width: 35px;
-  }
+  .sideNav ul img{
+  width: 35px;
+}
 
-  .sideNav ul .text,.items .addBtn .text {
-    display: none;
-  }
+.items .addBtn img {
+  width: 30px;
+}
 
-  .all-items,
-  #category {
-    margin-left: 25%;
-    width: 75%;
-    margin-top: 17vh;
-  }
+.sideNav ul .text,
+.items .addBtn .text {
+  display: none;
+}
 
-  header {
-    height: 15vh;
-    width: 98%;
-  }
+.all-items,
+#category {
+  margin-left: 25%;
+  width: 75%;
+  margin-top: 17vh;
+}
 
-  header .hText {
-    position: absolute;
-    left: 18%;
-    top: 9vh;
-  }
+header {
+  height: 15vh;
+  width: 98%;
+}
 
-  header h1 {
-    font-size: 30px;
-  }
+header .hText {
+  position: absolute;
+  left: 18%;
+  top: 9vh;
+}
 
-  .column {
-    width: 95%;
-    padding: 12px 0;
-  }
+header h1 {
+  font-size: 30px;
+}
 
-  h1 {
-    font-size: 35px;
+.column {
+  width: 95%;
+  padding: 12px 0;
+}
 
-  }
+h1 {
+  font-size: 35px;
+
+}
 
 
-  .card .itemImg {
-    width: 55px;
-  }
+.card .itemImg {
+  width: 55px;
+}
 
 
-  .card-btns button img {
-    width: 30px;
-  }
+.card-btns button img {
+  width: 30px;
+}
 
-  .card-content {
-    position: relative;
-    padding: 50px 20px 20px 20px !important;
-  }
+.card-content {
+  position: relative;
+  padding: 50px 20px 20px 20px !important;
+}
 
-  /*end of view items*/
+/*end of view items*/
 }
 
 /*End of media*/
