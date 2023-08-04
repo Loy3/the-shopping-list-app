@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { collection, getDocs, doc, deleteDoc, updateDoc, query, where } from "firebase/firestore";
+import {
+    collection, getDocs, doc, deleteDoc, updateDoc
+} from "firebase/firestore";
 import { db } from "../Config/Firebase";
 
 const initialState = {
     loading: false,
     error: null,
-    items: [],
-    item:[]
+    items: []
 }
 
 const FirestoreGetItemsSlice = createSlice({
     name: "items",
-    name: "item",
     initialState,
     reducers: {
         fetchItemsStart(state) {
@@ -22,10 +22,7 @@ const FirestoreGetItemsSlice = createSlice({
             state.loading = false;
             state.items = action.payload
         },
-        fetchItemSuccess(state, action) {
-            state.loading = false;
-            state.item = action.payload
-        },
+
         fetchItemsFailure(state, action) {
             state.loading = null;
             state.error = action.payload;
@@ -62,26 +59,11 @@ export const fetchItems = () => async (dispatch) => {
     }
 
 }
-export const fetchItem = (category) => async (dispatch) => {
-    dispatch(fetchItemsStart())
-    try {
-        const q = query(collection(db, "items"), where("itemCategory", "==", category));
-        const querySnapshot = await getDocs(q);
-        const docs = [];
-        querySnapshot.forEach((doc) => {
-            docs.push({ id: doc.id, ...doc.data() });
-        });
-        dispatch(fetchItemSuccess(docs))
-        // console.log(docs);
-    } catch (error) {
-        dispatch(fetchItemsFailure(error))
-    }
-}
+
 export const deleteAnItem = (id) => async (dispatch) => {
     try {
         await deleteDoc(doc(db, "items", id));
         alert("Document successfully deleted!");
-        window.location.reload();
     } catch (error) {
         dispatch(fetchItemsFailure(error));
     }
@@ -99,9 +81,7 @@ export const updateAnItem = (id) => async (dispatch) => {
     try {
         await updateDoc(storageRef, upItem);
         alert("Document successfully updated!");
-
-        window.location.reload();
-
+        document.getElementById("updateItem").style.display = "none";
     } catch (error) {
         dispatch(fetchItemsFailure(error));
     }

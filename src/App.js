@@ -6,7 +6,6 @@ import VIewItems from './Components/VIewItems';
 function App() {
   return (
     <>
-      
       <VIewItems />
     </>
   );

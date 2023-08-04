@@ -20,7 +20,7 @@ export const FirestoreStoreItemSlice = createSlice({
             }
         }
     }
-})
+}) 
 
 export const { addNewItem } = FirestoreStoreItemSlice.actions;
 

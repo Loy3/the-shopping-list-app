@@ -1,0 +1,84 @@
+Bakary:
+color D: b56d3e
+BG color:f8a067
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(248,160,103,1) 100%);
+
+
+
+Bev:
+color D:38bb86
+BG color:aaebb9
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(170,235,185,1) 100%);
+
+
+Canned:
+color D:40ccf7
+BG color:86dffa
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(134,223,250,1) 100%);
+
+
+Dairy:
+color D:ffe405
+BG color:fff5a1
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(255,245,161,1) 100%);
+
+
+Dry:
+color D:d46a50
+BG color:e9a999
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(233,169,153,1) 100%);
+
+
+Frozen:
+color D:8cc3fa
+BG color:a4c6e7
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(164,198,231,1) 100%);
+
+
+Cleaning:
+color D:058d3f
+BG color:6cffd8
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(108,255,216,1) 100%);
+
+
+
+Fruits/Proced:
+color D:f26a07
+BG color:ffa462
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(255,164,98,1) 100%);
+
+
+Meat:
+color D:74041b
+BG color:ff6579
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(255,101,121,1) 100%);
+
+
+Paper:
+color D:beb8ea
+BG color:dedbee
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(222,219,238,1) 100%);
+
+
+Personal:
+color D:7d920c
+BG color:cfdf7a
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(207,223,122,1) 100%);
+
+
+Other:
+color D:ea9f26
+BG color:ffbf58
+background: rgb(255,255,255);
+background: linear-gradient(164deg, rgba(255,255,255,1) 0%, rgba(255,191,88,1) 100%);
