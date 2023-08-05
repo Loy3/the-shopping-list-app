@@ -119,7 +119,7 @@ export default function VIewItems() {
     });
     useEffect(() => {
         dispatch(fetchItems())
-        console.log(items);
+        // console.log(items);
 
         let myItems = [];
 
