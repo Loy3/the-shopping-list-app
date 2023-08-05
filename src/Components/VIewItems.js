@@ -96,7 +96,7 @@ export default function VIewItems() {
     ]
 
     const dispatch = useDispatch();
-    const { items } = useSelector((state) => state.items)
+    const { items } = useSelector((state) => state.items) 
     const [displayItems, setDisplayItems] = useState([]);
 
     const [beveragesC, setbeveragesC] = useState([]);
@@ -117,9 +117,10 @@ export default function VIewItems() {
         itemQuantity: "",
         itemCategory: ""
     });
+
     useEffect(() => {
         dispatch(fetchItems())
-        // console.log(items);
+        console.log(items);
 
         let myItems = [];
 
@@ -149,7 +150,7 @@ export default function VIewItems() {
 
         setDisplayItems(items)
 
-    }, [dispatch])
+    }, [dispatch]) 
 
     function deleteItem(event, item) {
         dispatch(deleteAnItem(item.id))

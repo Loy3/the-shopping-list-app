@@ -53,7 +53,7 @@ export const fetchItems = () => async (dispatch) => {
             return { id: doc.id, ...doc.data() };
         });
         dispatch(fetchItemsSuccess(documents))
-        // console.log(documents);
+        console.log(documents);
     } catch (error) {
         dispatch(fetchItemsFailure(error))
     }
