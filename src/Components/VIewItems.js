@@ -69,7 +69,7 @@ export default function VIewItems() {
         },
         {
             name: "Produced",
-            img: produecedP,
+            img: produecedP, 
             description: "Fruits, vegetables"
         },
         {
@@ -112,14 +112,14 @@ export default function VIewItems() {
     const [personalC, setPersonalC] = useState([]);
     const [otherC, setOtherC] = useState([]);
     const [updateItem, setUpdateItem] = useState({
-        id: "",
+        id: "", 
         itemName: "",
         itemQuantity: "",
         itemCategory: ""
     });
     useEffect(() => {
         dispatch(fetchItems())
-        // console.log(items);
+        console.log(items);
 
         let myItems = [];
 

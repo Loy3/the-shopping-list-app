@@ -4,7 +4,7 @@ import { db } from "../Config/Firebase";
 
 export const FirestoreStoreItemSlice = createSlice({
     name: "db",
-    initialState:{
+    initialState: {
         itemName: "",
         itemQuantity: "",
         itemCategory: ""
@@ -14,13 +14,14 @@ export const FirestoreStoreItemSlice = createSlice({
             try {
                 const docRef = addDoc(collection(db, "items"), action.payload);
                 console.log(docRef);
-                alert("Added Successfully!")
+                alert("Added Successfully!");
+                window.location.reload();
             } catch (error) {
                 alert(error)
             }
         }
     }
-}) 
+})
 
 export const { addNewItem } = FirestoreStoreItemSlice.actions;
 
