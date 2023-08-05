@@ -54,7 +54,7 @@ export const fetchItems = () => async (dispatch) => {
         });
         dispatch(fetchItemsSuccess(documents))
         window.location.reload();
-        console.log(documents);
+        //console.log(documents);
     } catch (error) {
         dispatch(fetchItemsFailure(error))
     }
