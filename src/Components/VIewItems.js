@@ -16,7 +16,7 @@ import meat from "../Assets/Icons/Meat2.png";
 import produecedP from "../Assets/Icons/fruits.png";
 import cleaningP from "../Assets/Icons/Cleaners.png";
 import paperG from "../Assets/Icons/paper.png";
-import personal_care from "../Assets/Icons/personal.png"; 
+import personal_care from "../Assets/Icons/personal.png";
 import otherG from "../Assets/Icons/Other.png";
 
 import editItem from "../Assets/Icons/edit.png";
@@ -69,7 +69,7 @@ export default function VIewItems() {
         },
         {
             name: "Produced",
-            img: produecedP, 
+            img: produecedP,
             description: "Fruits, vegetables"
         },
         {
@@ -96,23 +96,10 @@ export default function VIewItems() {
     ]
 
     const dispatch = useDispatch();
-    const { items } = useSelector((state) => state.items) 
-    const [displayItems, setDisplayItems] = useState([]);
+    const { items } = useSelector((state) => state.items)
 
-    const [beveragesC, setbeveragesC] = useState([]);
-    const [breadC, setBreadC] = useState([]);
-    const [cannedC, setCannedC] = useState([]);
-    const [dairyC, setDairyC] = useState([]);
-    const [dryC, setDryC] = useState([]);
-    const [frozenC, setFrozenC] = useState([]);
-    const [meatC, setMeatC] = useState([]);
-    const [produecedC, setProduecedC] = useState([]);
-    const [cleaningC, setCleaningC] = useState([]);
-    const [paperGC, setPaperGC] = useState([]);
-    const [personalC, setPersonalC] = useState([]);
-    const [otherC, setOtherC] = useState([]);
     const [updateItem, setUpdateItem] = useState({
-        id: "", 
+        id: "",
         itemName: "",
         itemQuantity: "",
         itemCategory: ""
@@ -120,37 +107,7 @@ export default function VIewItems() {
 
     useEffect(() => {
         dispatch(fetchItems())
-        console.log(items);
-
-        let myItems = [];
-
-        myItems = items.reduce((acc, obj) => {
-            const splitCategory = obj.itemCategory.split(/\s|\//)
-            const cate = splitCategory[0];
-            if (!acc[cate]) {
-                acc[cate] = [obj];
-            } else {
-                acc[cate].push(obj);
-            }
-            return acc;
-        }, {});
-        // console.log(myItems);
-        setbeveragesC(myItems.Beverages)
-        setBreadC(myItems.Bread)
-        setCannedC(myItems.Canned)
-        setDairyC(myItems.Dairy)
-        setDryC(myItems.Dry)
-        setFrozenC(myItems.Frozen)
-        setMeatC(myItems.Meat)
-        setProduecedC(myItems.Produced)
-        setCleaningC(myItems.Cleaning)
-        setPaperGC(myItems.Paper)
-        setPersonalC(myItems.Personal)
-        setOtherC(myItems.Other)
-
-        setDisplayItems(items)
-
-    }, [dispatch]) 
+    }, [dispatch])
 
     function deleteItem(event, item) {
         dispatch(deleteAnItem(item.id))
@@ -182,89 +139,103 @@ export default function VIewItems() {
         event.preventDefault();
         let all = document.getElementById("all");
         let cty = document.getElementById("category");
+
+        let myItems = [];
+
+        myItems = items.reduce((acc, obj) => {
+            const splitCategory = obj.itemCategory.split(/\s|\//)
+            const cate = splitCategory[0];
+            if (!acc[cate]) {
+                acc[cate] = [obj];
+            } else {
+                acc[cate].push(obj);
+            }
+            return acc;
+        }, {});
+
         switch (type) {
             case "Beverages":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Beverages");
-                setDisplayCatgory(beveragesC);
+                setDisplayCatgory(myItems.Beverages);
                 break;
 
             case "Bread/Bakery":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Bread/Bakery");
-                setDisplayCatgory(breadC);
+                setDisplayCatgory(myItems.Bread);
                 break;
 
             case "Canned/Jarred Goods":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Canned/Jarred Goods");
-                setDisplayCatgory(cannedC);
+                setDisplayCatgory(myItems.Canned);
                 break;
 
             case "Dairy":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Dairy");
-                setDisplayCatgory(dairyC);
+                setDisplayCatgory(myItems.Dairy);
                 break;
 
             case "Dry/Baking Goods":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Dry/Baking Goods");
-                setDisplayCatgory(dryC);
+                setDisplayCatgory(myItems.Dry);
                 break;
 
             case "Frozen Foods":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Frozen Foods");
-                setDisplayCatgory(frozenC);
+                setDisplayCatgory(myItems.Frozen);
                 break;
 
             case "Meat":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Meat");
-                setDisplayCatgory(meatC);
+                setDisplayCatgory(myItems.Meat);
                 break;
 
             case "Produced":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Produced");
-                setDisplayCatgory(produecedC);
+                setDisplayCatgory(myItems.Produced);
                 break;
 
             case "Cleaning":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Cleaning");
-                setDisplayCatgory(cleaningC);
+                setDisplayCatgory(myItems.Cleaning);
                 break;
 
             case "Paper Goods":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Paper Goods");
-                setDisplayCatgory(paperGC);
+                setDisplayCatgory(myItems.Paper);
                 break;
 
             case "Personal Care":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Personal Care");
-                setDisplayCatgory(personalC);
+                setDisplayCatgory(myItems.Personal);
                 break;
 
             case "Other":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Other");
-                setDisplayCatgory(otherC);
+                setDisplayCatgory(myItems.Other);
                 break;
             default:
                 all.style.display = "block";
@@ -477,7 +448,6 @@ export default function VIewItems() {
                                 <li><img src={cat.img} alt="category" width={30} /></li>
                                 <li className="text">{cat.name}</li>
                             </ul>
-
                         </button>
 
                     ))}
@@ -502,7 +472,7 @@ export default function VIewItems() {
                 <p>List of all the items.</p>
                 <br /><br />
                 <div className="row">
-                    {displayItems.map((item, index) => (
+                    {items.map((item, index) => (
                         <div className="column" key={index}>
                             <div className="card" style={{ background: handleColor(item.itemCategory) }}>
                                 <img className="itemImg" src={handleImg(item.itemCategory)} alt="item" width={50} />
@@ -562,7 +532,7 @@ export default function VIewItems() {
             <div id={"updateItem"}>
                 <div className="add-new-item">
                     <div className="box">
-                    <img src={closeBtn} alt="closebtn" width={30} onClick={closeForm} />
+                        <img src={closeBtn} alt="closebtn" width={30} onClick={closeForm} />
                         <h2 style={{ color: handleHeadingColor(updateItem.itemCategory) }}>Update Item</h2>
                         <div className="add-form">
                             <input type="text" name="itemName" placeholder={`Item Name: ${updateItem.itemName}`} onChange={handleChange} />
