@@ -16,7 +16,7 @@ import meat from "../Assets/Icons/Meat2.png";
 import produecedP from "../Assets/Icons/fruits.png";
 import cleaningP from "../Assets/Icons/Cleaners.png";
 import paperG from "../Assets/Icons/paper.png";
-import personal_care from "../Assets/Icons/personal.png"; 
+import personal_care from "../Assets/Icons/personal.png";
 import otherG from "../Assets/Icons/Other.png";
 
 import editItem from "../Assets/Icons/edit.png";
@@ -69,7 +69,7 @@ export default function VIewItems() {
         },
         {
             name: "Produced",
-            img: produecedP, 
+            img: produecedP,
             description: "Fruits, vegetables"
         },
         {
@@ -96,7 +96,7 @@ export default function VIewItems() {
     ]
 
     const dispatch = useDispatch();
-    const { items } = useSelector((state) => state.items) 
+    const { items } = useSelector((state) => state.items)
     const [displayItems, setDisplayItems] = useState([]);
 
     const [beveragesC, setbeveragesC] = useState([]);
@@ -112,7 +112,7 @@ export default function VIewItems() {
     const [personalC, setPersonalC] = useState([]);
     const [otherC, setOtherC] = useState([]);
     const [updateItem, setUpdateItem] = useState({
-        id: "", 
+        id: "",
         itemName: "",
         itemQuantity: "",
         itemCategory: ""
@@ -150,7 +150,7 @@ export default function VIewItems() {
 
         setDisplayItems(items)
 
-    }, [dispatch]) 
+    }, [dispatch])
 
     function deleteItem(event, item) {
         dispatch(deleteAnItem(item.id))
@@ -473,11 +473,8 @@ export default function VIewItems() {
                     {categories.map((cat, index) => (
 
                         <button key={index} style={{ background: handleColor(cat.name) }} onClick={(event) => handleCategories(event, cat.name)} >
-                            <ul>
-                                <li><img src={cat.img} alt="category" width={30} /></li>
-                                <li className="text">{cat.name}</li>
-                            </ul>
-
+                            <img src={cat.img} alt="category" width={30} />
+                            <span>{cat.name}</span>
                         </button>
 
                     ))}
@@ -485,16 +482,13 @@ export default function VIewItems() {
             </div >
 
             <header>
-                <div className="bg"></div>
+                <div className="bg" />
                 <div className="hText">
                     <h1>My Shopping List</h1>
                 </div>
             </header>
             <button className="addBtn" onClick={addBtn}>
-                <ul>
-                    <li><img src={addItm} alt="category" width={30} /></li>
-                    <li className="text">Add Item</li>
-                </ul>
+                <img src={addItm} alt="category" width={30} /> <span>Add Item</span>
             </button>
 
             <div className="all-items" id={"all"}>
@@ -562,7 +556,7 @@ export default function VIewItems() {
             <div id={"updateItem"}>
                 <div className="add-new-item">
                     <div className="box">
-                    <img src={closeBtn} alt="closebtn" width={30} onClick={closeForm} />
+                        <img src={closeBtn} alt="closebtn" width={30} onClick={closeForm} />
                         <h2 style={{ color: handleHeadingColor(updateItem.itemCategory) }}>Update Item</h2>
                         <div className="add-form">
                             <input type="text" name="itemName" placeholder={`Item Name: ${updateItem.itemName}`} onChange={handleChange} />
@@ -594,5 +588,4 @@ export default function VIewItems() {
             </div>
         </div >
     )
-
 }
