@@ -96,7 +96,7 @@ export default function VIewItems() {
     ]
 
     const dispatch = useDispatch();
-    const { items } = useSelector((state) => state.items) 
+    const { items } = useSelector((state) => state.items)
     const [displayItems, setDisplayItems] = useState([]);
 
     const [beveragesC, setbeveragesC] = useState([]);
@@ -150,7 +150,7 @@ export default function VIewItems() {
 
         setDisplayItems(items)
 
-    }, [dispatch]) 
+    }, [dispatch])
 
     function deleteItem(event, item) {
         dispatch(deleteAnItem(item.id))
@@ -182,103 +182,89 @@ export default function VIewItems() {
         event.preventDefault();
         let all = document.getElementById("all");
         let cty = document.getElementById("category");
-
-        let myItems = [];
-
-        myItems = items.reduce((acc, obj) => {
-            const splitCategory = obj.itemCategory.split(/\s|\//)
-            const cate = splitCategory[0];
-            if (!acc[cate]) {
-                acc[cate] = [obj];
-            } else {
-                acc[cate].push(obj);
-            }
-            return acc;
-        }, {});
-
         switch (type) {
             case "Beverages":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Beverages");
-                setDisplayCatgory(myItems.Beverages);
+                setDisplayCatgory(beveragesC);
                 break;
 
             case "Bread/Bakery":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Bread/Bakery");
-                setDisplayCatgory(myItems.Bread);
+                setDisplayCatgory(breadC);
                 break;
 
             case "Canned/Jarred Goods":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Canned/Jarred Goods");
-                setDisplayCatgory(myItems.Canned);
+                setDisplayCatgory(cannedC);
                 break;
 
             case "Dairy":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Dairy");
-                setDisplayCatgory(myItems.Dairy);
+                setDisplayCatgory(dairyC);
                 break;
 
             case "Dry/Baking Goods":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Dry/Baking Goods");
-                setDisplayCatgory(myItems.Dry);
+                setDisplayCatgory(dryC);
                 break;
 
             case "Frozen Foods":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Frozen Foods");
-                setDisplayCatgory(myItems.Frozen);
+                setDisplayCatgory(frozenC);
                 break;
 
             case "Meat":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Meat");
-                setDisplayCatgory(myItems.Meat);
+                setDisplayCatgory(meatC);
                 break;
 
             case "Produced":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Produced");
-                setDisplayCatgory(myItems.Produced);
+                setDisplayCatgory(produecedC);
                 break;
 
             case "Cleaning":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Cleaning");
-                setDisplayCatgory(myItems.Cleaning);
+                setDisplayCatgory(cleaningC);
                 break;
 
             case "Paper Goods":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Paper Goods");
-                setDisplayCatgory(myItems.Paper);
+                setDisplayCatgory(paperGC);
                 break;
 
             case "Personal Care":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Personal Care");
-                setDisplayCatgory(myItems.Personal);
+                setDisplayCatgory(personalC);
                 break;
 
             case "Other":
                 all.style.display = "none";
                 cty.style.display = "block";
                 setTitle("Other");
-                setDisplayCatgory(myItems.Other);
+                setDisplayCatgory(otherC);
                 break;
             default:
                 all.style.display = "block";
@@ -487,11 +473,8 @@ export default function VIewItems() {
                     {categories.map((cat, index) => (
 
                         <button key={index} style={{ background: handleColor(cat.name) }} onClick={(event) => handleCategories(event, cat.name)} >
-                            <ul>
-                                <li><img src={cat.img} alt="category" width={30} /></li>
-                                <li className="text">{cat.name}</li>
-                            </ul>
-
+                            <img src={cat.img} alt="category" width={30} />
+                            <span>{cat.name}</span>
                         </button>
 
                     ))}
@@ -513,7 +496,7 @@ export default function VIewItems() {
                 <p>List of all the items.</p>
                 <br /><br />
                 <div className="row">
-                    {items.map((item, index) => (
+                    {displayItems.map((item, index) => (
                         <div className="column" key={index}>
                             <div className="card" style={{ background: handleColor(item.itemCategory) }}>
                                 <img className="itemImg" src={handleImg(item.itemCategory)} alt="item" width={50} />
